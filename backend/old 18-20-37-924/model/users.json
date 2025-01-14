@@ -1,0 +1,20 @@
+[
+  {
+    "name": "user1",
+    "email": "user1@gmail.com",
+    "birth": "01/01/2002",
+    "password": "$2b$10$oEbHZlazDHE1YnnJ4XdpGuGh9a/JZOO7Xe6WZtRRsSMgprxMXnKza"
+  },
+  {
+    "name": "user2",
+    "email": "user2@gmail.com",
+    "birth": "02/02/2002",
+    "password": "$2b$10$cvfmz./teMWDccIMChAxZ.HqgL3eoQGYTm1z9lGy5iRf8D7NNargC"
+  },
+  {
+    "name": "user3",
+    "email": "user3@gmail.com",
+    "birth": "03/03/2003",
+    "password": "$2b$10$33Q9jtAoaXC4aUX9Bjihxum2BHG.ENB6JyoCvPjnuXpITtUd8x8/y"
+  }
+]

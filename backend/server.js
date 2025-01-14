@@ -1,13 +1,18 @@
 require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
+const cors = require('cors');
+const corsOptions = require('./config/corsOptions');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const connectDB = require('./config/dbConnection');
 
 const PORT = process.env.SERVER_PORT || 3000;
 
+// Inicializando Express
 const app = express();
+
+// Liberando o acesso externo - CORS
+app.use(cors());
 
 // Models
 const User = require('./models/User');

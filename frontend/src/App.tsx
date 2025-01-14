@@ -5,7 +5,6 @@ import GlobalStyles from './Globals';
 
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
-import NotFound from './pages/NotFound';
 
 import Header from './components/Layout/Header';
 
@@ -31,8 +30,6 @@ function App() {
                 <Route path="/" element={<Signin />} />
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/notfound" element={<NotFound />} />
-                <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
           </div>

@@ -17,6 +17,10 @@ export const HeaderContainer = styled.header`
   padding: 1rem 2rem;
   margin-bottom: 4rem;
 
+  .hidden {
+    display: none;
+  }
+
   nav {
     ul {
       display: flex;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CustomInput = styled.input<{ hasError: boolean }>`
+export const CustomInput = styled.input<{ helpertext: string }>`
   padding: 0.8rem;
   border-radius: 0.4rem;
   color: #555;
@@ -22,7 +22,7 @@ export const CustomInput = styled.input<{ hasError: boolean }>`
     outline: 2px solid rgba(31, 216, 31, 0.75);
   }
 
-  ${({ hasError }) => hasError && 'outline: 2px solid red;'}
+  ${({ helpertext }) => helpertext && 'outline: 2px solid red;'}
 `;
 
 export const CustomInputLabel = styled.label`

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {useState } from 'react';
+import { useState } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -56,14 +56,14 @@ export const useSignUpForm = () => {
       console.log(response.data);
     } catch (error) {
       console.log(error);
+
       //Somente para testes, uma vez que não temos o backend
       setIsloading(true);
       setIsCreated(true);
       setTimeout(() => {
         setIsloading(false);
       }, 1000);
-      console.log(data)
-     
+      console.log(data);
     }
   };
   return {

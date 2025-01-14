@@ -48,7 +48,6 @@ export const useSignInForm = () => {
       console.log(error);
       //Somente para testes, uma vez que não temos o backend
       setIsloading(true);
-      // setAuth(true);
       signIn(data.email);
       setTimeout(() => {
         setIsloading(false);

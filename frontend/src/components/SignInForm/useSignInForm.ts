@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -6,8 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema } from './schema';
 import type { LoginDataProps } from './types';
 import { useLoginStore } from '../../store/login';
-
-const LOGIN_URL = '/auth';
+import { api } from '../../services/axiosClient';
 
 export const useSignInForm = () => {
   const { isLoading, hasUser, setIsloading, setHasUser } = useLoginStore();
@@ -32,27 +30,24 @@ export const useSignInForm = () => {
     setHasUser(false);
   };
 
-  const handleUserLogin = async (data: LoginDataProps) => {
+  const loginUser = async (loginData: LoginDataProps): Promise<void> => {
     try {
-      const response = await axios.post(LOGIN_URL, JSON.stringify(data), {
-        headers: { 'Content-Type': 'application/json' },
-        withCredentials: true,
-      });
+      const response = await api.post('/auth', loginData);
+      console.log('Usuário logado com sucesso:', response.data);
       setIsloading(true);
-      signIn(data.email);
+      signIn(loginData.email);
       setTimeout(() => {
         setIsloading(false);
       }, 1000);
       console.log(response);
     } catch (error) {
-      console.log(error);
+      console.error('Erro ao logar o usuário:', error);
       //Somente para testes, uma vez que não temos o backend
       setIsloading(true);
-      signIn(data.email);
+      signIn(loginData.email);
       setTimeout(() => {
         setIsloading(false);
       }, 1000);
-      console.log(data);
     }
   };
   return {
@@ -62,7 +57,7 @@ export const useSignInForm = () => {
     setHasUser,
     signIn,
     handleUserLogOut,
-    handleUserLogin,
+    loginUser,
     handleSubmit,
     register,
   };

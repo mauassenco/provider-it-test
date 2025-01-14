@@ -4,9 +4,9 @@ import type { signUpSchema } from './schema';
 export type SignUpFormProps = z.infer<typeof signUpSchema>;
 
 export type SignUpProps = {
-name: string;
-email: string;
-birth: string;
-password: string;
-passwordConfirmation: string;
+  name: string;
+  email: string;
+  birth: string;
+  password: string;
+  passwordConfirmation: string;
 };

@@ -9,7 +9,7 @@ import OutContainer from '../Layout/OutContainer';
 import { useEffect } from 'react';
 
 const SignInForm = () => {
-  const { isLoading, errors, hasUser, register, handleUserLogin, handleUserLogOut, handleSubmit, setHasUser } =
+  const { isLoading, errors, hasUser, register, loginUser, handleUserLogOut, handleSubmit, setHasUser } =
     useSignInForm();
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const SignInForm = () => {
   ) : (
     <FormContainer>
       <div>
-        <form onSubmit={handleSubmit(handleUserLogin)}>
+        <form onSubmit={handleSubmit(loginUser)}>
           <h2>Login</h2>
           <CustomInput
             {...register('email')}

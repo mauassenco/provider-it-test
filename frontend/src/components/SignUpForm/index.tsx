@@ -15,7 +15,7 @@ const SignUpForm = () => {
     errors,
     register,
     setIsCreated,
-    handleNewUserSubmit,
+    createUser,
     handleInputChange,
     handleSubmit,
   } = useSignUpForm();
@@ -38,7 +38,7 @@ const SignUpForm = () => {
   ) : (
     <FormContainer>
       <div>
-        <form onSubmit={handleSubmit(handleNewUserSubmit)}>
+        <form onSubmit={handleSubmit(createUser)}>
           <h2>Cadastro</h2>
 
           <CustomInput

@@ -36,9 +36,8 @@ export const useSignInForm = () => {
   const loginUser = async (loginData: LoginDataProps): Promise<void> => {
     try {
       const response = await api.post('/auth', loginData);
-      console.log('Usuário logado com sucesso:', response.data);
+      console.log('Usuário logado com sucesso');
       signIn(loginData.email, response.data.token);
-      console.log(response);
     } catch (error) {
       console.error('Erro ao logar o usuário:', error);
     }

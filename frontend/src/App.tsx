@@ -25,7 +25,7 @@ function App() {
         <Router>
           <div>
             <Header />
-            <main style={{ zIndex: '1', position: 'relative' }}>
+            <main>
               <Routes>
                 <Route path="/" element={<Signin />} />
                 <Route path="/signin" element={<Signin />} />
@@ -34,9 +34,6 @@ function App() {
             </main>
           </div>
         </Router>
-
-        {/* <SignInForm /> */}
-        {/* <SignUpForm /> */}
       </>
     </ThemeProvider>
   );

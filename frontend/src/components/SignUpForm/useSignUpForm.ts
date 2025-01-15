@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -10,7 +11,7 @@ import { api } from '../../services/axiosClient';
 
 export const useSignUpForm = () => {
   const [birthDate, setBirthDate] = useState('');
-  const { isLoading, isCreated, setIsCreated, setIsloading } = useLoginStore();
+  const { isLoading, isCreated, setIsCreated } = useLoginStore();
 
   const handleInputChange = (e: { target: { value: string } }) => {
     //ChangeEvent<HTMLInputElement>}) => {
@@ -40,17 +41,12 @@ export const useSignUpForm = () => {
   });
 
   const createUser = async (data: SignUpFormProps): Promise<void> => {
-    console.log('Payload being sent to server:', data);
     try {
       const response = await api.post('/register', data);
       setIsCreated(true);
-      console.log('Usuário cadastrado com sucesso:', response.data);
+      console.log('Usuário cadastrado com sucesso');
     } catch (error) {
       console.error('Erro ao cadastrar usuário:', error);
-    } finally {
-      setTimeout(() => {
-        setIsloading(false);
-      }, 1000);
     }
   };
 
@@ -59,7 +55,6 @@ export const useSignUpForm = () => {
     isLoading,
     isCreated,
     errors,
-    // setAuth,
     setIsCreated,
     createUser,
     handleInputChange,

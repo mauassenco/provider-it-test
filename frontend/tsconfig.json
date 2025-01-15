@@ -4,8 +4,10 @@
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
     "jsx": "react-jsx",
-    "moduleResolution": "node", 
-    "lib": ["esnext"] 
+    "moduleResolution": "node",
+    "lib": ["dom", "es2015", "esnext"],
+    "noEmit": true
   }
 }

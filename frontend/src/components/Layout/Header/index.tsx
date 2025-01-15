@@ -3,11 +3,12 @@ import * as Styles from './styles';
 import { useLoginStore } from '../../../store/login';
 
 const Header = () => {
-  const { hasUser, isCreated, setHasUser, removeToken } = useLoginStore();
+  const { hasUser, setIsCreated, setHasUser, removeToken } = useLoginStore();
 
   const handleLogout = () => {
     removeToken();
     setHasUser(false);
+    setIsCreated(false);
   };
 
   return (
@@ -28,7 +29,8 @@ const Header = () => {
                 Login
               </Link>
             </li>
-            <li className={`${isCreated && 'hidden'}`}>
+            {/* <li className={`${isCreated && 'hidden'}`}> */}
+            <li>
               <Link to="/signup" onClick={handleLogout}>
                 Cadastro
               </Link>

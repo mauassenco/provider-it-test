@@ -42,43 +42,43 @@ const SignUpForm = () => {
           <h2>Cadastro</h2>
 
           <CustomInput
-            {...register('newUser.name')}
+            {...register('name')}
             placeholder="Digite seu nome"
             label="Nome"
-            helpertext={errors.newUser?.name?.message}
+            helpertext={errors.name?.message}
           />
 
           <CustomInput
-            {...register('newUser.email')}
+            {...register('email')}
             placeholder="Digite seu email"
             label="Email"
-            helpertext={errors.newUser?.email?.message}
+            helpertext={errors.email?.message}
           />
 
           <CustomInput
-            {...register('newUser.birth')}
+            {...register('birth')}
             placeholder="Digite sua data de nascimento (dd/mm/aaaa)"
             label="Data de nascimento"
-            helpertext={errors.newUser?.birth?.message}
+            helpertext={errors.birth?.message}
             onChange={handleInputChange}
             value={birthDate}
             maxLength={10}
           />
 
           <CustomInput
-            {...register('newUser.password')}
+            {...register('password')}
             placeholder="Crie uma senha"
             label="Senha"
             type="password"
-            helpertext={errors.newUser?.password?.message}
+            helpertext={errors.password?.message}
           />
 
           <CustomInput
-            {...register('newUser.passwordConfirmation')}
+            {...register('confirmPassword')}
             placeholder="Repita a senha criada"
             label="Confirme a senha"
             type="password"
-            helpertext={errors.newUser?.passwordConfirmation?.message}
+            helpertext={errors.confirmPassword?.message}
           />
 
           <button type="submit">Cadastrar</button>

@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
 import { signUpSchema } from './schema';
-import type { SignUpFormProps, SignUpProps } from './types';
+import type { SignUpFormProps } from './types';
 import { useLoginStore } from '../../store/login';
 import { api } from '../../services/axiosClient';
 
@@ -12,7 +12,6 @@ export const useSignUpForm = () => {
   const [birthDate, setBirthDate] = useState('');
   const { isLoading, isCreated, setIsCreated, setIsloading } = useLoginStore();
 
-  // const handleInputChange = (e: { target: { value: string } }) => {
   const handleInputChange = (e: { target: { value: string } }) => {
     //ChangeEvent<HTMLInputElement>}) => {
     const value = e.target.value.replace(/\D/g, '');
@@ -32,37 +31,29 @@ export const useSignUpForm = () => {
     mode: 'onBlur',
     resolver: zodResolver(signUpSchema),
     defaultValues: {
-      newUser: {
-        name: '',
-        email: '',
-        birth: '',
-        password: '',
-        passwordConfirmation: '',
-      },
+      name: '',
+      email: '',
+      birth: '',
+      password: '',
+      confirmPassword: '',
     },
   });
 
-  const createUser = async (formData: { newUser: SignUpProps }): Promise<void> => {
+  const createUser = async (data: SignUpFormProps): Promise<void> => {
+    console.log('Payload being sent to server:', data);
     try {
-      const response = await api.post('/register', formData);
-
-      setIsloading(true);
+      const response = await api.post('/register', data);
       setIsCreated(true);
+      console.log('Usuário cadastrado com sucesso:', response.data);
+    } catch (error) {
+      console.error('Erro ao cadastrar usuário:', error);
+    } finally {
       setTimeout(() => {
         setIsloading(false);
       }, 1000);
-      console.log('Usuário cadastrado com sucesso:', response.data);
-      console.log(response);
-    } catch (error) {
-      console.error('Erro ao cadastrar usuário:', error);
-      //Somente para testes, uma vez que não temos o backend
-      // setIsloading(true);
-      // setIsCreated(true);
-      // setTimeout(() => {
-      //   setIsloading(false);
-      // }, 1000);
     }
   };
+
   return {
     birthDate,
     isLoading,

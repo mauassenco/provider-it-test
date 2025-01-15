@@ -8,5 +8,5 @@ export type SignUpProps = {
   email: string;
   birth: string;
   password: string;
-  passwordConfirmation: string;
+  confirmPassword: string;
 };

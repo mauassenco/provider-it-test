@@ -10,10 +10,13 @@ import { api } from '../../services/axiosClient';
 export const useSignInForm = () => {
   const { isLoading, hasUser, setIsloading, setHasUser } = useLoginStore();
 
-  const signIn = (email: string) => {
-    const token = Math.random().toString(36).substring(2);
+  const signIn = (email: string, token: string) => {
     localStorage.setItem('user_token', JSON.stringify({ email, token }));
     setHasUser(true);
+    setIsloading(true);
+    setTimeout(() => {
+      setIsloading(false);
+    }, 1000);
   };
 
   const {
@@ -34,20 +37,10 @@ export const useSignInForm = () => {
     try {
       const response = await api.post('/auth', loginData);
       console.log('Usuário logado com sucesso:', response.data);
-      setIsloading(true);
-      signIn(loginData.email);
-      setTimeout(() => {
-        setIsloading(false);
-      }, 1000);
+      signIn(loginData.email, response.data.token);
       console.log(response);
     } catch (error) {
       console.error('Erro ao logar o usuário:', error);
-      //Somente para testes, uma vez que não temos o backend
-      setIsloading(true);
-      signIn(loginData.email);
-      setTimeout(() => {
-        setIsloading(false);
-      }, 1000);
     }
   };
   return {

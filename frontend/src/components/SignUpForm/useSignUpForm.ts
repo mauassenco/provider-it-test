@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -7,10 +6,11 @@ import { useForm } from 'react-hook-form';
 import { signUpSchema } from './schema';
 import type { SignUpFormProps, SignUpProps } from './types';
 import { useLoginStore } from '../../store/login';
+import { api } from '../../services/axiosClient';
 
 export const useSignUpForm = () => {
   const [birthDate, setBirthDate] = useState('');
-  const { isLoading, isCreated, setIsCreated, setIsloading, setAuth } = useLoginStore();
+  const { isLoading, isCreated, setIsCreated, setIsloading } = useLoginStore();
 
   // const handleInputChange = (e: { target: { value: string } }) => {
   const handleInputChange = (e: { target: { value: string } }) => {
@@ -42,35 +42,9 @@ export const useSignUpForm = () => {
     },
   });
 
-  // const handleNewUserSubmit = async (data: SignUpFormProps) => {
-  //   try {
-  //     const response = await axios.post(REGISTER_URL, JSON.stringify(data), {
-  //       headers: { 'Content-Type': 'application/json' },
-  //       withCredentials: true,
-  //     });
-  //     setIsloading(true);
-  //     setIsCreated(true);
-  //     setTimeout(() => {
-  //       setIsloading(false);
-  //     }, 1000);
-  //     console.log(response);
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     console.log(error);
-
-  //     //Somente para testes, uma vez que não temos o backend
-  //     setIsloading(true);
-  //     setIsCreated(true);
-  //     setTimeout(() => {
-  //       setIsloading(false);
-  //     }, 1000);
-  //     console.log(data);
-  //   }
-  // };
-
   const createUser = async (formData: { newUser: SignUpProps }): Promise<void> => {
     try {
-      const response = await axios.post('http://localhost:5757/register', formData);
+      const response = await api.post('/register', formData);
 
       setIsloading(true);
       setIsCreated(true);
@@ -94,7 +68,7 @@ export const useSignUpForm = () => {
     isLoading,
     isCreated,
     errors,
-    setAuth,
+    // setAuth,
     setIsCreated,
     createUser,
     handleInputChange,

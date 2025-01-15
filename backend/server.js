@@ -12,10 +12,11 @@ const PORT = process.env.SERVER_PORT || 3000;
 const app = express();
 
 // Liberando o acesso externo - CORS
-app.use(cors());
+app.use(cors(corsOptions));
 
 // Models
 const User = require('./models/User');
+const Users = require('./models/Users');
 
 // Aceitando JSON
 app.use(express.json());

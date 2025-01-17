@@ -1,6 +1,6 @@
 # About
 
-**Full-Stack Login System:** A comprehensive project demonstrating my proficiency in both frontend and backend development. Features include user registration, secure login with password hashing (`Bcrypt`), and `JWT` authentication. Built with `React`, `TypeScript`, `Zustand`, `React Hook Form`, `Zod` and a robust backend utilizing `Node.js`, `Express`, `MongoDB`, and `Mongoose`.
+**Full-Stack Login System:** A comprehensive project demonstrating my proficiency in both frontend and backend development. Features include user registration, secure login with password hashing (`Bcrypt`), and `JWT` authentication. Built with `React`, `TypeScript`, `Zustand`, `React Hook Form`, `Zod`, `styled-components` and a robust backend utilizing `Node.js`, `Express`, `MongoDB`, and `Mongoose`.
 
 # Technologies
 

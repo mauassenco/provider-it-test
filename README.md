@@ -1,5 +1,5 @@
 
-#Tech stacks:
+###Technologies
 
 ## Frontend:
 

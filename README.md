@@ -24,6 +24,7 @@ Key Considerations:
 * Git: Expert in Git version control, including branching, merging, and resolving conflicts.
 * REST APIs Proficient in designing, consuming, and building RESTful APIs for data exchange.
 * Linting & Formatting: Utilizing ESLint and Prettier for code style enforcement and maintaining consistent code formatting across projects.
+  # #
 
-  #How to run:
+# How to run:
 
